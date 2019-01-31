@@ -1,0 +1,51 @@
+<!--
+  ~ Copyright (c) 2018 Dimitrijs Fedotovs
+  ~ This code is licensed under MIT license
+  ~ (see LICENSE.txt for details)
+  -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/templates/main.xhtml">
+    <ui:define name="content">
+
+        <h:panelGroup styleClass="searchForm">
+            <f:metadata>
+                <f:viewParam name="id" value="#{cartridgeBean.id}"/>
+                <f:viewAction action="#{cartridgeBean.openCartridge}"/>
+            </f:metadata>
+
+            <h1 class="w3-center w3-wide">#{cartridgeBean.cartridge.manufacturer}</h1>
+
+            <div class="w3-container">
+                <img src="#{cartridgeBean.cartridge.image}" class="image"/>
+                <table class="table w3-table-all w3-hoverable w3-centered">
+                    <tr>
+                        <td>Kārtridžs:</td>
+                        <td>#{cartridgeBean.cartridge.name}</td>
+                    </tr>
+                    <tr>
+                        <td>Apraksts:</td>
+                        <td>#{cartridgeBean.cartridge.description}</td>
+                    </tr>
+                    <tr>
+                        <td>Uzpilde:</td>
+                        <td>#{cartridgeBean.cartridge.cost} €</td>
+                    </tr>
+                </table>
+                <h:form rendered="#{request.isUserInRole('ADMIN')}">
+                    <h:commandButton style="width: 175px" styleClass="w3-button w3-blue-grey w3-margin"
+                                     action="#{cartridgeBean.deleteCartridge(cartridgeBean.id)}" value="Dzēst">
+                        <f:ajax render="@form" execute="@form"/>
+                    </h:commandButton>
+                </h:form>
+            </div>
+        </h:panelGroup>
+
+    </ui:define>
+</ui:composition>
+
+</html>

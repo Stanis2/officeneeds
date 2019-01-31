@@ -1,0 +1,42 @@
+<!--
+  ~ Copyright (c) 2018 Dimitrijs Fedotovs
+  ~ This code is licensed under MIT license
+  ~ (see LICENSE.txt for details)
+  -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/templates/main.xhtml">
+    <ui:define name="content">
+
+        <h:form>
+
+            <h:panelGroup styleClass="searchForm">
+            <h:inputText styleClass="w3-input w3-center" value="#{userListBean.name}"/>
+            <h:commandButton style="width: 175px" styleClass="w3-button w3-blue-grey w3-margin" value="Search" action="#{userListBean.doSearch}">
+                <f:ajax execute="@form" render="@form"/>
+            </h:commandButton>
+            </h:panelGroup>
+
+            <h:dataTable styleClass="table w3-table-all w3-hoverable w3-centered" value="#{userListBean.users}" var="user">
+                <h:column rendered="#{not empty userListBean.users}">
+                    <f:facet name="header">User</f:facet>
+                    #{user.loginName}
+                </h:column>
+                <h:column rendered="#{not empty userListBean.users}">
+                    <f:facet name="header">Role</f:facet>
+                    #{user.roleName}
+                </h:column>
+                <h:column rendered="#{empty userListBean.users}">
+                    <f:facet name="header">Not found</f:facet>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+</html>

@@ -1,0 +1,87 @@
+<!--
+  ~ Copyright (c) 2018 Dimitrijs Fedotovs
+  ~ This code is licensed under MIT license
+  ~ (see LICENSE.txt for details)
+  -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>Office Needs</title>
+</h:head>
+
+<h:body styleClass="w3-light-grey">
+
+    <header>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+        <ui:insert name="header">
+            <ui:include src="header.xhtml"/>
+        </ui:insert>
+    </header>
+
+    <section>
+        <ui:insert name="content"/>
+    </section>
+
+    <style>
+
+        .image {
+            border-collapse: collapse;
+            width: 35%;
+            alignment: center;
+            margin: 0px auto;
+        }
+
+        table, td, th {
+            border: 1px solid black;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .table {
+            border-collapse: collapse;
+            width: 50%;
+            alignment: center;
+            margin: 0px auto;
+            text-align: center;
+        }
+
+        th {
+            height: 50px;
+        }
+
+        .searchForm {
+            display: block;
+            text-align:center;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            text-align:center;
+        }
+
+        ul {
+            text-align:center;
+            padding-bottom: 15px;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+    </style>
+
+    <div class="footer w3-blue-grey">
+        <h6>SIA "Office Needs"</h6>
+        <h6>Augusta Deglava iela 60, Rīga, Latvija</h6>
+    </div>
+
+</h:body>
+</html>

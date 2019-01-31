@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/templates/main.xhtml">
+    <ui:define name="content">
+        <h:form id="Input">
+
+            <ui:fragment rendered="#{newCartridgeBean.created}">
+                <h2>Pievienots jauns kārtridžs.</h2>
+            </ui:fragment>
+
+            <h:panelGroup styleClass="searchForm">
+                <p>
+                    <h:outputLabel value="Ražotājs: "/>
+                    <h:inputText  id="Title" value="#{newCartridgeBean.cartridge.manufacturer}"/>
+                    <h:messages for="Title"/>
+                </p>
+                <p>
+                    <h:outputLabel value="Kārtridžs: "/>
+                    <h:inputText id="Author" value="#{newCartridgeBean.cartridge.name}"/>
+                    <h:messages for="Author"/>
+                </p>
+                <p>
+                    <h:outputLabel value="Uzpildes cena: "/>
+                    <h:inputText id="Cost" value="#{newCartridgeBean.cartridge.cost}"/>
+                    <h:messages for="Cost"/>
+                </p>
+                <p>
+                    <h:outputLabel value="Attēls: "/>
+                    <h:inputText id="Image" value="#{newCartridgeBean.cartridge.image}"/>
+                </p>
+                <p>
+                    <h:outputLabel value="Apraksts: "/> <br/>
+                    <h:inputTextarea id="Description" value="#{newCartridgeBean.cartridge.description}"/>
+                </p>
+                <p>
+                    <h:commandButton style="width: 175px" styleClass="w3-button w3-blue-grey w3-margin" action="#{newCartridgeBean.createCartridge}" value="Pievienot kārtridžu">
+                        <f:ajax render="@form" execute="@form"/>
+                    </h:commandButton>
+                </p>
+            </h:panelGroup>
+
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+</html>

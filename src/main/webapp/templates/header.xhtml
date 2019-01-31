@@ -1,0 +1,33 @@
+<!--
+  ~ Copyright (c) 2018 Dimitrijs Fedotovs
+  ~ This code is licensed under MIT license
+  ~ (see LICENSE.txt for details)
+  -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<ui:composition>
+    <h:form>
+        <ul>
+            <ui:fragment rendered="#{request.isUserInRole('ADMIN')}">
+                <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Lietotāju saraksts" outcome="/admin/user-list.xhtml"/>
+                <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Jauns kārtridžs" outcome="/admin/index.xhtml"/>
+            </ui:fragment>
+            <ui:fragment rendered="#{empty currentUser.user}">
+                <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Kārtridžu saraksts" outcome="/cartridgelist.xhtml"/>
+                <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Kontakti" outcome="/contacts.xhtml"/>
+                <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Ielogoties" outcome="/login.xhtml"/>
+                <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Reģistrācija" outcome="/registration.xhtml"/>
+            </ui:fragment>
+            <ui:fragment rendered="#{request.isUserInRole('USER')}">
+                <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Kārtridžu saraksts" outcome="/cartridgelist.xhtml"/>
+                <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Kontakti" outcome="/contacts.xhtml"/>
+                <h:commandButton style="width: 175px" styleClass="w3-button w3-blue-grey" value="Iziet" action="#{loginBean.logout}"/>
+            </ui:fragment>
+        </ul>
+    </h:form>
+</ui:composition>
+</html>
