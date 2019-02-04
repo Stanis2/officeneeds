@@ -17,8 +17,10 @@
                 <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Jauns kārtridžs" outcome="/admin/index.xhtml"/>
             </ui:fragment>
             <ui:fragment rendered="#{empty currentUser.user}">
+                <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Office Needs" outcome="/index.xhtml"/>
                 <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Kārtridžu saraksts" outcome="/cartridgelist.xhtml"/>
                 <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Kontakti" outcome="/contacts.xhtml"/>
+                <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Piegāde " outcome="/delivery.xhtml"/>
                 <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Ielogoties" outcome="/login.xhtml"/>
                 <h:button style="width: 175px" styleClass="w3-button w3-blue-grey" value="Reģistrācija" outcome="/registration.xhtml"/>
             </ui:fragment>

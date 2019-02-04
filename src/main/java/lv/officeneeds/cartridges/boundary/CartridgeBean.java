@@ -3,7 +3,6 @@ package lv.officeneeds.cartridges.boundary;
 import lv.officeneeds.cartridges.model.CartridgeEntity;
 
 import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,9 +15,6 @@ import java.io.Serializable;
 public class CartridgeBean implements Serializable {
     @PersistenceContext
     private EntityManager em;
-
-    @Inject
-    private CurrentCartridge currentCartridge;
 
     private Long id;
     private CartridgeEntity cartridge;
